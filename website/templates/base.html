@@ -3,34 +3,45 @@
     <head>
         <meta charset = "utf-8" />
         <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+        <link rel="stylesheet" href='/static/style.css' />
 
         <title> {% block title %} Home {% endblock %} </title>
 
     </head>
     <body>
-        <!--<nav class="navbar"> <!-- navbar class here, implement navbar in static/index.js -->
-            <!--
-            <button 
-                class="navbar-toggle" 
-                type="button" 
-                data-toggle="collapse" 
-                data-target="#navbar"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbar">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" id="login" href="/login"> Login </a>
-                    <a class="nav-item nav-link" id="signup" href="/sign-up"> Sign Up </a>
-                    <a class="nav-item nav-link" id="login" href="/logout"> Logout </a>
-                    <a class="nav-item nav-link" id="login" href="/"> Home </a>
-                </div>    
-            </div>    
-        </nav>   -->
-
+        <header>
+            <div class="logo"> Ovation </div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="nav-bar">
+                <ul>
+                    <li>
+                        <a href="" class="active"> Home </a>
+                    </li>
+                    <li>
+                        <a href=""> Login </a>
+                    </li>
+                    <li>
+                        <a href=""> About </a>
+                    </li>
+                    <li>
+                        <a href=""> Contact </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
         <script>
             type = "text/javascript"
             src ="{{ url_for('static', filename = 'index.js')}}"
+
+            hamburger = document.querySelector(".hamburger")
+            hamburger.onclick = function() {
+                navBar = document.querySelector(".nav-bar");
+                navBar.classList.toggle("active");
+            }
         </script>
     </body>
 </html>
